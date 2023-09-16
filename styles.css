@@ -1,0 +1,230 @@
+/* 
+    - Mobile: below 420px 
+    - tablets: 420-601px 
+    - Desktop/large tablets: 
+*/
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    /*default font*/
+    font-family: 'Karla', sans-serif;
+    /*root font size*/
+    font-size: 16px;
+    /*default font sizes*/
+    --font--small: 1.02rem;
+    --font--medium: 1.125rem;
+    --font--smedium: 1.225rem;
+    --font--marge: 1.36rem;
+    --font--large: 1.5rem;
+    --font--largest: 2.5rem;
+    /* colors */
+    --white: hsl(0, 0%, 100%);
+    --bodyBackground: hsl(206, 47%, 93%);
+    --blue: hsl(179, 62%, 43%);
+    --lightBlue: hsl(179, 47%, 52%);
+    --grayishBlue: hsl(218, 22%, 67%);
+    --greenishYellow: hsl(71, 73%, 54%);
+    --lightGray: hsl(204, 43%, 93%);
+}
+
+body{ 
+    display: flex;
+    justify-content: center;
+    background-color: var(--bodyBackground);
+}
+
+.container{
+    display: grid;
+    grid-template-columns: auto;
+    border-radius: 0.625rem;
+    overflow: hidden;
+    min-width: 20.313rem;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem; 
+}
+
+.card > * {
+    margin: 1rem 0rem;
+}
+
+.card--one{
+    background-color: var(--white);
+}
+
+.card__h1{
+    color: var(--blue);
+    font-size: var(--font--large);
+}
+
+.card__h2{
+    margin-bottom: 0;
+    font-size: var(--font--medium);
+}
+
+.card__h2--text--marge{
+    font-size: var(--font--marge);
+}
+
+.card__h2--color--green{ 
+    color: var(--greenishYellow);
+}
+
+.card__h2--color--white{
+    color:white;
+    white-space: nowrap;
+}
+
+.card__p{
+    font-size: var(--font--small);
+}
+
+.card__p--color--gray-blue{
+    color: var(--grayishBlue);
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+.card__p--color--white{
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+}
+
+.card--two{
+    background-color: var(--blue);
+    color: white;
+}
+
+.card__span{
+    vertical-align: middle;
+}
+
+.card__span--text--large{ 
+    font-size: var(--font--largest);
+    font-weight: bold;
+}
+
+.card__p--text--small{
+    font-size: var(--font--smedium);
+    line-height: 1.5rem;
+}
+
+.card__p--color--transparent-white{
+    color: rgba(255,255,255, 0.6);
+    line-height: 1.5rem;
+}
+
+.card__button{
+    background-color: var(--greenishYellow);
+    border-radius: 0.313rem;
+    width: 100%;
+    padding: 1.25rem;
+    border: none;
+    box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.1);
+    color: rgba(255,255,255, 0.9);
+    font-weight: bold;
+    font-size: var(--font--small);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.card__button::after{ 
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background: rgba(91, 219, 6, 0.5);
+
+    inset: 0;
+
+    scale: 0 1;
+    transform-origin: right;
+    transition: scale 450ms;
+}
+
+.card__button:hover::after, .card__button:focus-visible::after {
+    transform-origin: left;
+    scale: 1 1;
+}
+
+.card--three{
+    background-color: var(--lightBlue);
+}
+
+@media only screen and (min-width: 420px){
+
+    :root{
+        --font--small: 1.313;
+        --font--medium: 1.54rem;
+        --font--smedium: 1.61rem;
+        --font--marge: 1.79rem;
+        --font--large: 1.97rem;
+        --font--largest: 3.5rem;
+    }
+
+    .card__p{
+        font-size: var(--font--medium);
+        line-height: 2.5rem;
+    }
+
+    .card__p--text--small{
+        font-size: var(--font--medium);
+        line-height: 2rem;
+    }
+    
+}
+
+@media only screen and (min-width: 601px) {
+
+    :root{
+        --font--small: 1.02rem;
+        --font--medium: 1.125rem;
+        --font--smedium: 1.225rem;
+        --font--marge: 1.36rem;
+        --font--large: 1.5rem;
+        --font--largest: 2.5rem;
+    }
+
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container{
+        grid-template-columns: repeat(2, calc(100% / 2));
+        max-width: 45.938rem;
+    }
+
+    .card{
+        padding: 2rem;
+    }
+
+    .card--one{
+        grid-column: 1 / span 2;
+        background-color: var(--white);
+    }
+
+    .card__button{
+        width: 100%;
+    }
+
+    .card__p{
+        font-size: var(--font--small);
+        line-height: 1.5rem;
+    }
+
+    .card__p--text--small{
+        font-size: var(--font--smedium);
+        line-height: 1.5rem;
+    }
+}
